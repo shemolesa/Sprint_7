@@ -7,7 +7,6 @@ import json
 class TestOrder:
 
     @allure.title('Проверка успешной регистрации заказа с разными вариантами цветов')
-    @allure.step('Регистрация заказа с полным набором данных')
     @pytest.mark.parametrize('color', [[], ["BLACK"], ["GREY"], ["BLACK", "GREY"]])
     def test_registration_order_complete_data_successfully(self, color):
         data.TEST_ORDER["color"] = color # добавляем цвет самоката в тело запроса
@@ -20,7 +19,6 @@ class TestOrder:
 
 
     @allure.title('Проверка получения списка заказа')
-    @allure.step('Получение списка заказа')
     def test_getting_list_orders_successfully(self):
         # отправляем запрос на регистрацию заказа и сохраняем ответ в переменную response
         response = requests.get(data.URL_ORDERS)
