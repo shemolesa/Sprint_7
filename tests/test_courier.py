@@ -16,7 +16,7 @@ class TestCourier:
         # отправляем запрос на регистрацию курьера с повторяющимся логином и сохраняем ответ в переменную response
         response = requests.post(data.URL_COURIER, data.TEST_COURIER)
         # проверяем, что курьер не зарегистрирован, выдалось соответствующее сообщение
-        assert response.status_code == 409 and response.json()['message'] == 'Этот логин уже используется. Попробуйте другой.'
+        assert response.status_code == 409 and response.json()['message'] == data.REGISTRATION_MESSAGE_409
 
 
     @allure.title('Проверка невозможности регистрации курьера с неполными обязательными полями')
@@ -26,7 +26,7 @@ class TestCourier:
         # отправляем запрос на регистрацию курьера и сохраняем ответ в переменную response
         response = requests.post(data.URL_COURIER, data=payload)
         # проверяем, что курьер не зарегистрирован, выдалось соответствующее сообщение
-        assert response.status_code == 400 and response.json()['message'] == "Недостаточно данных для создания учетной записи"
+        assert response.status_code == 400 and response.json()['message'] == data.REGISTRATION_MESSAGE_400 #"Недостаточно данных для создания учетной записи"
 
     @allure.title('Проверка успешной авторизации курьера с реальными данными')
     def test_authorization_courier_real_data_successfully(self, response_id_courier):
@@ -47,7 +47,7 @@ class TestCourier:
         # логинимся без указания логина
         response = requests.post(data.URL_COURIER_LOGIN, data=payload)
         # проверяем что авторизация не выполнена: код = 400 и сообщение "Недостаточно данных для входа"
-        assert response.status_code == 400 and response.json()['message'] == "Недостаточно данных для входа"
+        assert response.status_code == 400 and response.json()['message'] == data.AUTHORIZATION_MESSAGE_400 #"Недостаточно данных для входа"
 
     @allure.title('Проверка обработки авторизации курьера с несуществующей парой логин-пароль')
     @pytest.mark.parametrize('payload', [data.TEST_COURIER_INCORRECT_LOGIN, data.TEST_COURIER_INCORRECT_PASSWORD])
@@ -55,6 +55,6 @@ class TestCourier:
         # логинимся с несуществующей парой логин-пароль
         response = requests.post(data.URL_COURIER_LOGIN, data=payload)
         # проверяем, что авторизация не выполнена: код = 404 и сообщение "Учетная запись не найдена"
-        assert response.status_code == 404 and response.json()['message'] == "Учетная запись не найдена"
+        assert response.status_code == 404 and response.json()['message'] == data.AUTHORIZATION_MESSAGE_404 # "Учетная запись не найдена"
 
 
