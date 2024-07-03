@@ -1,7 +1,7 @@
 URL = 'http://qa-scooter.praktikum-services.ru/'
-URL_COURIER = 'https://qa-scooter.praktikum-services.ru/api/v1/courier'
-URL_COURIER_LOGIN = 'https://qa-scooter.praktikum-services.ru/api/v1/courier/login'
-URL_ORDERS = 'http://qa-scooter.praktikum-services.ru/api/v1/orders'
+URL_COURIER = URL + 'api/v1/courier'
+URL_COURIER_LOGIN = URL + 'api/v1/courier/login'
+URL_ORDERS = URL + 'api/v1/orders'
 TEST_COURIER = {
     "login": "me_test_courier",
     "password": "me_password",
