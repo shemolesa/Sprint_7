@@ -22,6 +22,8 @@ _test_registration_courier_complete_data_successfully_ - Проверка усп
 _test_registration_courier_double_error_ - Проверка невозможности регистрации курьера с повторяющимся логином
 _test_registration_courier_incomplete_data_error_ - Проверка невозможности регистрации курьера с неполными обязательными полями
 _test_authorization_courier_incomplete_data_error504_ - Проверка наличия пароля для авторизации курьера
+
+## test_courier_authorization.py
 _test_authorization_courier_real_data_successfully_ - Проверка успешной авторизации курьера
 _test_authorization_courier_incomplete_data_error400_ - Проверка наличия логина для авторизации курьера
 _test_authorization_courier_null_couple_error404_ - Проверка обработки авторизации курьера с несуществующей парой логин-пароль

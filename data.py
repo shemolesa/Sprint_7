@@ -32,3 +32,4 @@ REGISTRATION_MESSAGE_409 = 'Этот логин уже используется.
 REGISTRATION_MESSAGE_400 = "Недостаточно данных для создания учетной записи"
 AUTHORIZATION_MESSAGE_400 = "Недостаточно данных для входа"
 AUTHORIZATION_MESSAGE_404 = "Учетная запись не найдена"
+AUTHORIZATION_MESSAGE_504 = "Service unavailable"
